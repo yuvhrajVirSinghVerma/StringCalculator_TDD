@@ -9,8 +9,13 @@ export function calculator(numbers) {
   }
   let numArr = numbers.split(new RegExp(`[${delimiter}\n]`));
   let sum = 0;
+  let negativeNums = [];
   numArr.map((num) => {
+    if (num < 0) negativeNums.push(num);
     sum += parseInt(num);
   });
+  if (negativeNums.length > 0) {
+    throw new Error(`negative numbers not allowed ${negativeNums.join(", ")}`);
+  }
   return sum;
 }
