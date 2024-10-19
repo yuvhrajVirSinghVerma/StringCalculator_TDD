@@ -20,4 +20,12 @@ describe('Calculator', () => {
     it('should handle custom delimiters', () => {
         assert.strictEqual(calculator('//;\n1;2'), 3);
     });
+
+    it('should throw an error for negative numbers', () => {
+        assert.throws(() => {
+            calculator('1,-2');
+        }, {
+            message: 'negative numbers not allowed -2'
+        });
+    });
 })
