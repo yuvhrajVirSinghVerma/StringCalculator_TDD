@@ -12,4 +12,8 @@ describe('Calculator', () => {
     it('should return the sum of two numbers', () => {
         assert.strictEqual(calculator('1,2'), 3);
     });
+
+    it('should handle new lines between numbers', () => {
+        assert.strictEqual(calculator('1\n2,3'), 6);
+    });
 })
