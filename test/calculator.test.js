@@ -15,10 +15,12 @@ describe('Calculator', () => {
 
     it('should handle new lines between numbers', () => {
         assert.strictEqual(calculator('1\n2,3'), 6);
+        assert.strictEqual(calculator('1\n2\n3,5\n7'), 18);
     });
 
     it('should handle custom delimiters', () => {
         assert.strictEqual(calculator('//;\n1;2'), 3);
+        assert.strictEqual(calculator('//;\n1;2;3;4'), 10);
     });
 
     it('should throw an error for negative numbers', () => {
@@ -27,5 +29,13 @@ describe('Calculator', () => {
         }, {
             message: 'negative numbers not allowed -2'
         });
+
+        assert.throws(() => {
+            calculator('1,-2,-3,-4');
+        }, {
+            message: 'negative numbers not allowed -2, -3, -4'
+        });
     });
+
+    
 })
