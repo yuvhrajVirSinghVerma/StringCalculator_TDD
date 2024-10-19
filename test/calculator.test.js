@@ -16,4 +16,8 @@ describe('Calculator', () => {
     it('should handle new lines between numbers', () => {
         assert.strictEqual(calculator('1\n2,3'), 6);
     });
+
+    it('should handle custom delimiters', () => {
+        assert.strictEqual(calculator('//;\n1;2'), 3);
+    });
 })
